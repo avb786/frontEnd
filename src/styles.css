@@ -5,5 +5,25 @@
 }
 
 body {
-  background: #343a40;
+  background:#f5f5f5;
+}
+/* 
+footer {
+  position: absolute;
+  height: 100px;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+} */
+.signUp{
+  position: relative;
+  margin-top: -29px;
+}
+.err-msg{
+    position: relative;
+    margin-top: -46px;
+    top: -12px;
+}
+#product-photo{
+  display: none;
 }
