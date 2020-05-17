@@ -1,6 +1,8 @@
-import React, {Fragment} from "react";
+import React, {Fragment, useEffect} from "react";
 import { Link, withRouter } from "react-router-dom";
-import { signout, isAuthenticated } from "../auth/helper"
+import { signout, isAuthenticated } from "../auth/helper";
+import "../styles.css";
+import loadingGif from "../assets/loader.svg"
 
 
 const currentTab = (history, path) => {

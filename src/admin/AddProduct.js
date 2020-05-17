@@ -4,9 +4,12 @@ import '../styles.css'
 import { Link } from "react-router-dom";
 import { getCategories, createaProduct } from "./helper/adminapicall";
 import { isAuthenticated } from "../auth/helper/index";
+import Loader from '../admin/Loader';
+
 
 const AddProduct = () => {
   const { user, token } = isAuthenticated();
+  const [load, setLoad] = useState(false)
 
   const [values, setValues] = useState({
     name: "",
@@ -55,6 +58,7 @@ const AddProduct = () => {
   const onSubmit = event => {
     event.preventDefault();
     setValues({ ...values, error: "", loading: true });
+    setLoad(true)
     createaProduct(user._id, token, formData).then(data => {
       if (data.error) {
         setValues({ ...values, error: data.error });
@@ -69,6 +73,7 @@ const AddProduct = () => {
           loading: false,
           createdProduct: data.name
         });
+        setLoad(false)
       }
     });
   };
@@ -94,7 +99,7 @@ const AddProduct = () => {
       <div className="form-group">
         <label className="btn btn-block btn-success">
         <i class="fa fa-upload fa-lg text-left" aria-hidden="true"></i>
-        <span className="text-center"> Uplaod The photo</span> 
+  <span className="text-center"> Uplaod The photo : </span> 
           <input
             onChange={handleChange("photo")}
             id="product-photo"
@@ -181,6 +186,7 @@ const AddProduct = () => {
       <Link to="/admin/dashboard" className="btn btn-md btn-dark">
       <i class="fa fa-home fa-2x" aria-hidden="true"></i> Admin Dashboard
       </Link>
+      <Loader loading = {load} />
       <div className="row bg-dark text-white rounded">
         <div className="col-md-8 offset-md-2">
           {successMessage()}

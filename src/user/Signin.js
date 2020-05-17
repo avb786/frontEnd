@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import Base from "../core/Base"
-import loadingGif from "../assets/loading.gif"
+import loadingGif from "../assets/loader.svg"
 import {Link, Redirect} from 'react-router-dom'
 import { signin, authenticate, isAuthenticated } from '../auth/helper';
 
