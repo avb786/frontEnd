@@ -1,6 +1,12 @@
-import React from "react";
-import Menu from './Menu'
+import React, {useEffect} from "react";
+import Menu from './Menu';
+import "../styles.css";
+import loadingGif from "../assets/loader.svg"
+import Loader from "./Loader";
+
 // import Loader from './Loader'
+
+
 
 const Base = ({
   title = "My Title",
@@ -8,8 +14,9 @@ const Base = ({
   className = "p-4",
   children
 }) => (
+  
   <div>
-    <div className="container-fluid">
+    <div className="container-fluid fullClass">
         <Menu />
       <div className=" text-center">
         <h2 className="display-4">{title}</h2>
